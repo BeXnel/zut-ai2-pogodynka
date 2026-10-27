@@ -80,6 +80,9 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "start-server": [
+            "php -S localhost:55757 -t public"
         ]
     },
     "conflict": {
