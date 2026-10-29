@@ -40,6 +40,13 @@
                         <li class="nav-item">
                             <a class="nav-link{{ app.request.attributes.get('_route') starts with 'app_weather_forecast' ? ' active' : '' }}" href="{{ path('app_weather_forecast_index') }}">Weather forecasts</a>
                         </li>
+                        <li class="nav-item">
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
+                            {% else %}
+                                <a class="nav-link{{ app.request.attributes.get('_route') == 'app_login' ? ' active' : '' }}" href="{{ path('app_login') }}">Login</a>
+                            {% endif %}
+                        </li>
                     </ul>
                 </div>
             </div>
