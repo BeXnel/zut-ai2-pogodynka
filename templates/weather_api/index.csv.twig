@@ -1,0 +1,9 @@
+{# @var city string #}
+{# @var country string #}
+{# @var weatherForecasts \App\Entity\WeatherForecast[] #}
+{# @var weatherForecasts \App\Entity\WeatherForecast[] #}
+{% autoescape false %}city,country,date,celsius,fahrenheit
+{% for forecast in weatherForecasts %}
+{{ city }},{{ country }},{{ forecast.date|date('Y-m-d') }},{{ forecast.temperature }},{{ forecast.fahrenheit }}
+{% endfor %}
+{% endautoescape %}

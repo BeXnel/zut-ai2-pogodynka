@@ -1,0 +1,17 @@
+{# @var city string #}
+{# @var country string #}
+{# @var weatherForecasts \App\Entity\WeatherForecast[] #}
+{
+  "city": "{{ city }}",
+  "country": "{{ country }}",
+  "weatherForecasts": [
+{% for forecast in weatherForecasts %}
+    {
+      "date": "{{ forecast.date|date('Y-m-d')|raw }}",
+      "celsius": "{{ forecast.temperature }}",
+      "fahrenheit": "{{ forecast.fahrenheit }}"
+    }{% if not loop.last %},{% endif %}
+
+{% endfor %}
+  ]
+}
